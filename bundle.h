@@ -1,3 +1,6 @@
+#ifndef BUNDLE_H
+#define BUNDLE_H
+
 #include <iostream>
 using namespace std;
 
@@ -9,3 +12,5 @@ class Bundle{
         float applyDiscount(float price);
         string getBundleName();
 };
+
+#endif

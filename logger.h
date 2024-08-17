@@ -1,3 +1,6 @@
+#ifndef LOGGER_H
+#define LOGGER_H
+
 #include "customer.h"
 #include <iostream>
 #include<fstream>
@@ -16,3 +19,5 @@ class Logger{
         static Logger* logger;
         Logger(string fileName);
 };
+
+#endif

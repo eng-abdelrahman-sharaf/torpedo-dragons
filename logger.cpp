@@ -33,10 +33,12 @@ void Logger::logPurchase(Customer* customer, float price) { /*logs buying operat
 }
 
 void Logger::logBundleModification(Customer* customer) {
+	time_t timestamp = time(NULL);
 	logger->loggingFile << timestamp<<": "<< customer->getName() <<" with id "<< customer->getID() <<" changed his bundle to " << customer->getBundle()->getBundleName();
 }
 
 
 void Logger::logNewBundle(Customer* customer) {
+	time_t timestamp = time(NULL);
 	logger->loggingFile << timestamp << ": " << customer->getName() << " with id " << customer->getID() << " got a new bundle " << customer->getBundle()->getBundleName() ;
 }
