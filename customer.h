@@ -10,5 +10,5 @@ class Customer{
         string getID();
         int getOpNum();
         string getName();
-        Bundle getBundle();
+        Bundle* getBundle();
 };
