@@ -4,13 +4,14 @@
 
 ```cpp
 class Customer{
-    Customer(string id , string name);
-    void setBundle(int bundleType);
-    void incrementOpNum();
-    string getID();
-    int getOpNum();
-    string getName();
-    Bundle getBundle();
+    public:
+        Customer(string id , string name);
+        void setBundle(int bundleType);
+        void incrementOpNum();
+        string getID();
+        int getOpNum();
+        string getName();
+        Bundle* getBundle();
 };
 ```
 
@@ -19,9 +20,17 @@ class Customer{
 ```cpp
 class Logger{
     public:
-    void logPurchase(Customer * customer , float price); /*logs buying operation and discount applying */
-    void logNewBundle(Customer * customer);
-    void logBundleModification(Customer * customer);
+        static Logger* init(string fileName);
+        void logPurchase(Customer * customer , float price); /*logs buying operation and discount applying */
+        void logNewBundle(Customer * customer);
+        void logBundleModification(Customer * customer);
+        ~Logger();
+        // deleting copy constructor
+        Logger(const Logger& obj) = delete;
+    private:
+        ofstream loggingFile;
+        static Logger* logger;
+        Logger(string fileName);
 };
 ```
 
@@ -46,11 +55,11 @@ class Logger{
 ```cpp
 class Bundle{
     public:
-    Bundle(); /*=> set bundleType to 0*/
-    void setBundleType(int typeNum); /* from 0 to 4 */
-    int getBundleType(); /* returns from 0 to 4 */
-    float applyDiscount(float price);
-    string getBundleName();
+        Bundle(); /*=> set bundleType to 0*/
+        void setBundleType(int typeNum); /* from 0 to 4 */
+        int getBundleType(); /* returns from 0 to 4 */
+        float applyDiscount(float price);
+        string getBundleName();
 };
 ```
 
