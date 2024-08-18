@@ -1,56 +1,52 @@
 #include <iostream>
-
 using namespace std;
-class Bundle{
-private:
-    int BundleType ;
-public:
-    Bundle(){
-        BundleType=0 ;
+#include "bundle.h"
+
+Bundle::Bundle(){
+    BundleType=0 ;
+}
+void Bundle::setBundleType(int TypeNumber){
+    if(TypeNumber>=0 && TypeNumber<=4){
+        BundleType=TypeNumber ;
     }
-    void setBundleType(int TypeNumber){
-        if(TypeNumber>=0 && TypeNumber<=4){
-            BundleType=TypeNumber ;
-        }
-        else {cout<<"Invalid Bundle Type !";}
-
-
+    else cout<<"Invalid Bundle Type !";
+}
+int Bundle::getBundleType(){
+    return BundleType ;
+}
+float Bundle::applyDiscount(float price){
+    if (BundleType == 0) return price;
+    else if(BundleType==1){
+        return price*0.85 ;/*discount 15%*/
     }
-    int getBundleType(){
-        return BundleType ;
+    else if (BundleType==2){
+        if(price>200){
+                return price-100 ;
+        }
+        else return price ;
     }
-    float applydiscount(float price){
-        if(BundleType==1){
-            return price*0.85 ;/*discount 15%*/
+    else if (BundleType==3){
+        if(price>200){
+            float discountedPrice=price-100 ;
+            return discountedPrice*0.85 ;
         }
-        else if (BundleType==2){
-            if(price>200){
-                    return price-100 ;
-
-            }
-            else return price ;
-        }
-        else if (BundleType==3){
-            if(price>200){
-                float discountedPrice=price-100 ;
-                return discountedPrice*0.85 ;
-            }
-            else{return price*0.85;}
-        }
-        else if(BundleType==4){
-            float discountedPrice=price*0.85 ;
-            if(discountedPrice>200){
-                return discountedPrice-100 ;
-            }
-            else{
-                return discountedPrice ;
-            }
-        }
-
-
+        else{return price*0.85;}
     }
-    string getBundleName(){
-        switch(BundleType){
+    else if(BundleType==4){
+        float discountedPrice=price*0.85 ;
+        if(discountedPrice>200){
+            return discountedPrice-100 ;
+        }
+        else{
+            return discountedPrice ;
+        }
+    }
+    else{
+        throw std::invalid_argument("recieved invalid bundleType");
+    }
+}
+string Bundle::getBundleName(){
+    switch(BundleType){
         case 0 :
             return "No Bundle" ;
         case 1 :
@@ -63,28 +59,5 @@ public:
             return "15% discount then 100 L.E off"  ;
         default :
             return "Invalid Bundle"  ;
-
-
-
-
-        }
-
-
-
-
     }
-};
-
-
-   int main() {
-
-    Bundle bundle;
-    bundle.setBundleType(1);
-    float price = 250;
-    float discountedPrice = bundle.applydiscount(price);
-
-    cout << "Original Price: " << price << " L.E." << endl;
-    cout << "Bundle Applied: " << bundle.getBundleName() << endl;
-    cout << "Discounted Price: " << discountedPrice << " L.E." << endl ;
-    return 0;
 }

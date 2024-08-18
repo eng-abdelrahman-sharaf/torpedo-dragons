@@ -11,6 +11,8 @@ class Bundle{
         int getBundleType(); /* returns from 0 to 4 */
         float applyDiscount(float price);
         string getBundleName();
+    private:
+        int BundleType;
 };
 
 #endif
