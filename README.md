@@ -1,6 +1,13 @@
 # OOP Task Prototype
 
-## Customer Protype
+## Class Diagram
+
+![UML class Diagram](<UML class.png>)
+
+## Use Case Diagram
+![alt text](<use case diagram.png>)
+
+## Customer Prototype
 
 ```cpp
 class Customer {
@@ -15,7 +22,7 @@ class Customer {
 };
 ```
 
-## Logger Protype
+## Logger Prototype
 
 ```cpp
 class Logger{
