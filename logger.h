@@ -15,9 +15,9 @@ class Logger{
         // deleting copy constructor
         Logger(const Logger& obj) = delete;
     private:
-        ofstream loggingFile;
         static Logger* logger;
         Logger(string fileName);
+        string filename;
 };
 
 #endif
