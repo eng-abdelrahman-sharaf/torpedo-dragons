@@ -3,15 +3,15 @@
 ## Customer Protype
 
 ```cpp
-class Customer{
+class Customer {
     public:
-        Customer(string id , string name);
+        Customer(string id, string name);
         void setBundle(int bundleType);
         void incrementOpNum();
         string getID();
         int getOpNum();
         string getName();
-        Bundle* getBundle();
+        Bundle *getBundle();
 };
 ```
 
@@ -27,11 +27,8 @@ class Logger{
         ~Logger();
         // deleting copy constructor
         Logger(const Logger& obj) = delete;
-    private:
-        ofstream loggingFile;
-        static Logger* logger;
-        Logger(string fileName);
 };
+
 ```
 
 ### Logging Messages Prototype (printed in a file):
